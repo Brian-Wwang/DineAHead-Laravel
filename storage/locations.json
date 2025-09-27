@@ -1,0 +1,978 @@
+{
+  "provinces": [
+    {
+      "id": "1",
+      "name": "Phnom Penh",
+      "districts": [
+        {
+          "id": "0101",
+          "name": "Chamkar Mon (Section)"
+        },
+        {
+          "id": "0102",
+          "name": "Doun Penh (Section)"
+        },
+        {
+          "id": "0103",
+          "name": "Prampir Meakkakra"
+        },
+        {
+          "id": "0104",
+          "name": "Tuol Kouk"
+        },
+        {
+          "id": "0105",
+          "name": "Dangkao"
+        },
+        {
+          "id": "0106",
+          "name": "Mean Chey"
+        },
+        {
+          "id": "0107",
+          "name": "Russey Keo"
+        },
+        {
+          "id": "0108",
+          "name": "Sen Sok"
+        },
+        {
+          "id": "0109",
+          "name": "Pur SenChey"
+        },
+        {
+          "id": "0110",
+          "name": "Chrouy Changvar"
+        },
+        {
+          "id": "0111",
+          "name": "Praek Pnov"
+        },
+        {
+          "id": "0112",
+          "name": "Chbar Ampov"
+        },
+        {
+          "id": "0113",
+          "name": "Boeng Keng Kang"
+        },
+        {
+          "id": "0114",
+          "name": "Kamboul"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Banteay Meanchey",
+      "districts": [
+        {
+          "id": "0202",
+          "name": "Mongkol Borei"
+        },
+        {
+          "id": "0203",
+          "name": "Phnum Srok"
+        },
+        {
+          "id": "0204",
+          "name": "Preah Netr Preah"
+        },
+        {
+          "id": "0205",
+          "name": "Ou Chrov"
+        },
+        {
+          "id": "0206",
+          "name": "Serei Saophoan"
+        },
+        {
+          "id": "0207",
+          "name": "Thma Puok"
+        },
+        {
+          "id": "0208",
+          "name": "Svay Chek"
+        },
+        {
+          "id": "0209",
+          "name": "Malai"
+        },
+        {
+          "id": "0210",
+          "name": "Paoy Paet"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Battambang",
+      "districts": [
+        {
+          "id": "0301",
+          "name": "Banan"
+        },
+        {
+          "id": "0302",
+          "name": "Thma Koul"
+        },
+        {
+          "id": "0303",
+          "name": "Battambang"
+        },
+        {
+          "id": "0304",
+          "name": "Bavel"
+        },
+        {
+          "id": "0305",
+          "name": "Aek Phnum"
+        },
+        {
+          "id": "0306",
+          "name": "Moung Ruessei"
+        },
+        {
+          "id": "0307",
+          "name": "Rotanak Mondol"
+        },
+        {
+          "id": "0308",
+          "name": "Sangkae"
+        },
+        {
+          "id": "0309",
+          "name": "Samlout"
+        },
+        {
+          "id": "0310",
+          "name": "Sampov Lun"
+        },
+        {
+          "id": "0311",
+          "name": "Phnum Proek"
+        },
+        {
+          "id": "0312",
+          "name": "Kamrieng"
+        },
+        {
+          "id": "0313",
+          "name": "Koas Krala"
+        },
+        {
+          "id": "0314",
+          "name": "Rukh Kiri"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Kampong Cham",
+      "districts": [
+        {
+          "id": "0401",
+          "name": "Batheay"
+        },
+        {
+          "id": "0402",
+          "name": "Chamkar Leu"
+        },
+        {
+          "id": "0403",
+          "name": "Cheung Prey"
+        },
+        {
+          "id": "0405",
+          "name": "Kampong Cham (Municipality)"
+        },
+        {
+          "id": "0406",
+          "name": "Kampong Siem"
+        },
+        {
+          "id": "0407",
+          "name": "Kang Meas"
+        },
+        {
+          "id": "0408",
+          "name": "Kaoh Soutin"
+        },
+        {
+          "id": "0413",
+          "name": "Prey Chhor"
+        },
+        {
+          "id": "0414",
+          "name": "Srei Santhor"
+        },
+        {
+          "id": "0415",
+          "name": "Steung Trang"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Kampong Chhnang",
+      "districts": [
+        {
+          "id": "0501",
+          "name": "Baribour"
+        },
+        {
+          "id": "0502",
+          "name": "Chol Kiri"
+        },
+        {
+          "id": "0503",
+          "name": "Kampong Chhnang (Municipality)"
+        },
+        {
+          "id": "0504",
+          "name": "Kampong Leaeng"
+        },
+        {
+          "id": "0505",
+          "name": "Kampong Tralach"
+        },
+        {
+          "id": "0506",
+          "name": "Rolea B'ier"
+        },
+        {
+          "id": "0507",
+          "name": "Sameakki Mean Chey"
+        },
+        {
+          "id": "0508",
+          "name": "Tuek Phos"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "name": "Kampong Speu",
+      "districts": [
+        {
+          "id": "0601",
+          "name": "Basedth"
+        },
+        {
+          "id": "0602",
+          "name": "Chbar Mon (Municipality)"
+        },
+        {
+          "id": "0603",
+          "name": "Kong Pisei"
+        },
+        {
+          "id": "0604",
+          "name": "Aoral"
+        },
+        {
+          "id": "0606",
+          "name": "Phnum Sruoch"
+        },
+        {
+          "id": "0607",
+          "name": "Samraong Tong"
+        },
+        {
+          "id": "0608",
+          "name": "Thpong"
+        },
+        {
+          "id": "0609",
+          "name": "Odongk Maechay (Municipality)"
+        },
+        {
+          "id": "0610",
+          "name": "Samkkei Munichay"
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "name": "Kampong Thom",
+      "districts": [
+        {
+          "id": "0701",
+          "name": "Baray"
+        },
+        {
+          "id": "0702",
+          "name": "Kampong Svay"
+        },
+        {
+          "id": "0703",
+          "name": "Stueng Saen (Municipality)"
+        },
+        {
+          "id": "0704",
+          "name": "Prasat Ballangk"
+        },
+        {
+          "id": "0705",
+          "name": "Prasat Sambour"
+        },
+        {
+          "id": "0706",
+          "name": "Sandan"
+        },
+        {
+          "id": "0707",
+          "name": "Santuk"
+        },
+        {
+          "id": "0708",
+          "name": "Stoung"
+        },
+        {
+          "id": "0709",
+          "name": "Tang Kouk"
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "name": "Kampot",
+      "districts": [
+        {
+          "id": "0801",
+          "name": "Angkor Chey"
+        },
+        {
+          "id": "0802",
+          "name": "Banteay Meas"
+        },
+        {
+          "id": "0803",
+          "name": "Chhuk"
+        },
+        {
+          "id": "0804",
+          "name": "Chum Kiri"
+        },
+        {
+          "id": "0805",
+          "name": "Dang Tong"
+        },
+        {
+          "id": "0806",
+          "name": "Kampong Trach"
+        },
+        {
+          "id": "0807",
+          "name": "Tuek Chhou"
+        },
+        {
+          "id": "0808",
+          "name": "Kampot (Municipality)"
+        },
+        {
+          "id": "0809",
+          "name": "Bokor (Municipality)"
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "name": "Kandal",
+      "districts": [
+        {
+          "id": "0901",
+          "name": "Kandal Stueng"
+        },
+        {
+          "id": "0902",
+          "name": "Kien Svay"
+        },
+        {
+          "id": "0903",
+          "name": "Khsach Kandal"
+        },
+        {
+          "id": "0904",
+          "name": "Kaoh Thum"
+        },
+        {
+          "id": "0905",
+          "name": "Leuk Daek"
+        },
+        {
+          "id": "0906",
+          "name": "Lvea Aem"
+        },
+        {
+          "id": "0907",
+          "name": "Mukh Kampul"
+        },
+        {
+          "id": "0908",
+          "name": "Angk Snuol"
+        },
+        {
+          "id": "0909",
+          "name": "Ponhea Lueu"
+        },
+        {
+          "id": "0910",
+          "name": "S'ang"
+        },
+        {
+          "id": "0911",
+          "name": "Ta Khmau (Municipality)"
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "name": "Koh Kong",
+      "districts": [
+        {
+          "id": "1001",
+          "name": "Botum Sakor"
+        },
+        {
+          "id": "1002",
+          "name": "Kiri Sakor"
+        },
+        {
+          "id": "1003",
+          "name": "Kaoh Kong"
+        },
+        {
+          "id": "1004",
+          "name": "Khemara Phoumin (Municipality)"
+        },
+        {
+          "id": "1005",
+          "name": "Mondol Seima"
+        },
+        {
+          "id": "1006",
+          "name": "Srae Ambel"
+        },
+        {
+          "id": "1007",
+          "name": "Thma Bang"
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "name": "Kratié",
+      "districts": [
+        {
+          "id": "1101",
+          "name": "Chhloung"
+        },
+        {
+          "id": "1102",
+          "name": "Kratie (Municipality)"
+        },
+        {
+          "id": "1103",
+          "name": "Prek Prasab"
+        },
+        {
+          "id": "1104",
+          "name": "Sambour"
+        },
+        {
+          "id": "1105",
+          "name": "Snuol"
+        },
+        {
+          "id": "1106",
+          "name": "Chetr Borei"
+        },
+        {
+          "id": "1107",
+          "name": "Ou Krieng Senchey"
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "name": "Mondulkiri",
+      "districts": [
+        {
+          "id": "1201",
+          "name": "Kaev Seima"
+        },
+        {
+          "id": "1202",
+          "name": "Kaoh Nheaek"
+        },
+        {
+          "id": "1203",
+          "name": "Ou Reang"
+        },
+        {
+          "id": "1204",
+          "name": "Pech Chreada"
+        },
+        {
+          "id": "1205",
+          "name": "Saen Monourom (Municipality)"
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "name": "Prey Veng",
+      "districts": [
+        {
+          "id": "1301",
+          "name": "Ba Phnum"
+        },
+        {
+          "id": "1302",
+          "name": "Kamchay Mear"
+        },
+        {
+          "id": "1303",
+          "name": "Kampong Trabaek"
+        },
+        {
+          "id": "1304",
+          "name": "Kanhchriech"
+        },
+        {
+          "id": "1305",
+          "name": "Me Sang"
+        },
+        {
+          "id": "1306",
+          "name": "Peam Chor"
+        },
+        {
+          "id": "1307",
+          "name": "Peam Ro"
+        },
+        {
+          "id": "1308",
+          "name": "Pea Reang"
+        },
+        {
+          "id": "1309",
+          "name": "Preah Sdach"
+        },
+        {
+          "id": "1310",
+          "name": "Prey Veng (Municipality)"
+        },
+        {
+          "id": "1311",
+          "name": "Kampong Leav"
+        },
+        {
+          "id": "1312",
+          "name": "Sithor Kandal"
+        },
+        {
+          "id": "1313",
+          "name": "Svay Antor"
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "name": "Preah Vihear",
+      "districts": [
+        {
+          "id": "1401",
+          "name": "Chey Saen"
+        },
+        {
+          "id": "1402",
+          "name": "Chhaeb"
+        },
+        {
+          "id": "1403",
+          "name": "Choam Ksant"
+        },
+        {
+          "id": "1404",
+          "name": "Kuleaen"
+        },
+        {
+          "id": "1405",
+          "name": "Rovieng"
+        },
+        {
+          "id": "1406",
+          "name": "Sangkum Thmei"
+        },
+        {
+          "id": "1407",
+          "name": "Tbaeng Mean Chey"
+        },
+        {
+          "id": "1408",
+          "name": "Preah Vihear (Municipality)"
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "name": "Pursat",
+      "districts": [
+        {
+          "id": "1501",
+          "name": "Bakan"
+        },
+        {
+          "id": "1502",
+          "name": "Kandieng"
+        },
+        {
+          "id": "1503",
+          "name": "Krakor"
+        },
+        {
+          "id": "1504",
+          "name": "Phnum Kravanh"
+        },
+        {
+          "id": "1505",
+          "name": "Pursat (Municipality)"
+        },
+        {
+          "id": "1506",
+          "name": "Veal Veaeng"
+        },
+        {
+          "id": "1507",
+          "name": "Ta Lou Senchey"
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "name": "Ratanakiri",
+      "districts": [
+        {
+          "id": "1601",
+          "name": "Andoung Meas"
+        },
+        {
+          "id": "1602",
+          "name": "Ban Lung (Municipality)"
+        },
+        {
+          "id": "1603",
+          "name": "Bar Kaev"
+        },
+        {
+          "id": "1604",
+          "name": "Koun Mom"
+        },
+        {
+          "id": "1605",
+          "name": "Lumphat"
+        },
+        {
+          "id": "1606",
+          "name": "Ou Chum"
+        },
+        {
+          "id": "1607",
+          "name": "Ou Ya Dav"
+        },
+        {
+          "id": "1608",
+          "name": "Ta Veaeng"
+        },
+        {
+          "id": "1609",
+          "name": "Veun Sai"
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "name": "Siem Reap",
+      "districts": [
+        {
+          "id": "1701",
+          "name": "Angkor Chum"
+        },
+        {
+          "id": "1702",
+          "name": "Angkor Thum"
+        },
+        {
+          "id": "1703",
+          "name": "Banteay Srei"
+        },
+        {
+          "id": "1704",
+          "name": "Chi Kraeng"
+        },
+        {
+          "id": "1706",
+          "name": "Kralanh"
+        },
+        {
+          "id": "1707",
+          "name": "Puok"
+        },
+        {
+          "id": "1709",
+          "name": "Prasat Bakong"
+        },
+        {
+          "id": "1710",
+          "name": "Siem Reap (Municipality)"
+        },
+        {
+          "id": "1711",
+          "name": "Soutr Nikom"
+        },
+        {
+          "id": "1712",
+          "name": "Srei Snam"
+        },
+        {
+          "id": "1713",
+          "name": "Svay Leu"
+        },
+        {
+          "id": "1714",
+          "name": "Varin"
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "name": "Preah Sihanouk",
+      "districts": [
+        {
+          "id": "1801",
+          "name": "Preah Sihanouk (Municipality)"
+        },
+        {
+          "id": "1802",
+          "name": "Prey Nob"
+        },
+        {
+          "id": "1803",
+          "name": "Stueng Hav"
+        },
+        {
+          "id": "1804",
+          "name": "Kampong Seila"
+        },
+        {
+          "id": "1805",
+          "name": "Kaoh Rung (Municipality)"
+        },
+        {
+          "id": "1806",
+          "name": "Kampong Soam (Municipality)"
+        }
+      ]
+    },
+    {
+      "id": "19",
+      "name": "Stung Treng",
+      "districts": [
+        {
+          "id": "1901",
+          "name": "Sesan"
+        },
+        {
+          "id": "1902",
+          "name": "Siem Bouk"
+        },
+        {
+          "id": "1903",
+          "name": "Siem Pang"
+        },
+        {
+          "id": "1904",
+          "name": "Steung Treng (Municipality)"
+        },
+        {
+          "id": "1905",
+          "name": "Thala Barivat"
+        }
+      ]
+    },
+    {
+      "id": "20",
+      "name": "Svay Rieng",
+      "districts": [
+        {
+          "id": "2001",
+          "name": "Chantrea"
+        },
+        {
+          "id": "2002",
+          "name": "Kampong Rou"
+        },
+        {
+          "id": "2003",
+          "name": "Rumduol"
+        },
+        {
+          "id": "2004",
+          "name": "Romeas Haek"
+        },
+        {
+          "id": "2005",
+          "name": "Svay Chrum"
+        },
+        {
+          "id": "2006",
+          "name": "Svay Rieng (Municipality)"
+        },
+        {
+          "id": "2007",
+          "name": "Svay Teab"
+        },
+        {
+          "id": "2008",
+          "name": "Bavet (Municipality)"
+        }
+      ]
+    },
+    {
+      "id": "21",
+      "name": "Takéo",
+      "districts": [
+        {
+          "id": "2101",
+          "name": "Angkor Borei"
+        },
+        {
+          "id": "2102",
+          "name": "Bati"
+        },
+        {
+          "id": "2103",
+          "name": "Borei Cholsar"
+        },
+        {
+          "id": "2104",
+          "name": "Kiri Vong"
+        },
+        {
+          "id": "2105",
+          "name": "Kaoh Andaet"
+        },
+        {
+          "id": "2106",
+          "name": "Prey Kabbas"
+        },
+        {
+          "id": "2107",
+          "name": "Samraong"
+        },
+        {
+          "id": "2108",
+          "name": "Doun Kaev (Municipality)"
+        },
+        {
+          "id": "2109",
+          "name": "Tram Kak"
+        },
+        {
+          "id": "2110",
+          "name": "Treang"
+        }
+      ]
+    },
+    {
+      "id": "22",
+      "name": "Oddar Meanchey",
+      "districts": [
+        {
+          "id": "2201",
+          "name": "Anlong Veaeng"
+        },
+        {
+          "id": "2202",
+          "name": "Banteay Ampil"
+        },
+        {
+          "id": "2203",
+          "name": "Chong Kal"
+        },
+        {
+          "id": "2204",
+          "name": "Samraong (Municipality)"
+        },
+        {
+          "id": "2205",
+          "name": "Trapeang Prasat"
+        }
+      ]
+    },
+    {
+      "id": "23",
+      "name": "Kep",
+      "districts": [
+        {
+          "id": "2301",
+          "name": "Damnak Chang'aeur"
+        },
+        {
+          "id": "2302",
+          "name": "Kep (Municipality)"
+        }
+      ]
+    },
+    {
+      "id": "24",
+      "name": "Pailin",
+      "districts": [
+        {
+          "id": "2401",
+          "name": "Pailin (Municipality)"
+        },
+        {
+          "id": "2402",
+          "name": "Sala Krau"
+        }
+      ]
+    },
+    {
+      "id": "25",
+      "name": "Tboung Khmum",
+      "districts": [
+        {
+          "id": "2501",
+          "name": "Dambae"
+        },
+        {
+          "id": "2502",
+          "name": "Krouch Chhmar"
+        },
+        {
+          "id": "2503",
+          "name": "Memot"
+        },
+        {
+          "id": "2504",
+          "name": "Ou Reang Ov"
+        },
+        {
+          "id": "2505",
+          "name": "Ponhea Kraek"
+        },
+        {
+          "id": "2506",
+          "name": "Suong (Municipality)"
+        },
+        {
+          "id": "2507",
+          "name": "Tboung Khmum"
+        }
+      ]
+    }
+  ]
+}

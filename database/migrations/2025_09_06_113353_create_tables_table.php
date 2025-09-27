@@ -13,7 +13,7 @@ return new class extends Migration
     {
       Schema::create('tables', function (Blueprint $table) {
         $table->id();
-        $table->foreignId('store_id')->constrained()->cascadeOnDelete();
+        $table->foreignId('stores_id')->constrained()->cascadeOnDelete();
         $table->string('name');
         $table->text('description')->nullable();
         $table->string('seat-level')->nullable();
@@ -24,7 +24,6 @@ return new class extends Migration
         $table->timestamps();
         $table->softDeletes(); // is_delete
       });
-
     }
 
     /**
