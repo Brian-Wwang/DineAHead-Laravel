@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use \App\Enums\CategoryType;
 use \App\Enums\DiscountType;
 
 return new class extends Migration
@@ -12,31 +13,23 @@ return new class extends Migration
      */
     public function up(): void
     {
-      Schema::create('menus', function (Blueprint $table) {
+      Schema::create('categories', function (Blueprint $table) {
         $table->id();
-        $table->foreignId('store_id')->constrained()->cascadeOnDelete();
-
+        $table->foreignId('store_id')->nullable()->constrained()->cascadeOnDelete();
         $table->string('name');
-        $table->text('description')->nullable();
+        $table->tinyInteger('type')
+          ->default(CategoryType::Normal->value)
+          ->comment('10=normal, 20=discount');
 
-        // 价格支持两位小数
-        $table->decimal('price', 10, 2);
-
-        // ✅ 单张图片
-        $table->string('image')->nullable();
-
-        // ✅ 数字枚举，数字为准
         $table->tinyInteger('discount_type')
           ->default(DiscountType::None->value)
           ->comment('0=none,10=percentage,20=actual,30=fix');
-
-        $table->decimal('discount_amount', 10, 2)->default(0);
-
-        // $table->tinyInteger('status')
-        //       ->default(0)
-        //       ->comment('0=available,1=pending,2=accept,3=confirm');
-
+        $table->decimal('discount_value', 10, 2)->nullable();
         $table->boolean('is_active')->default(true);
+        $table->unsignedBigInteger('created_by')->nullable();
+        $table->string('created_by_name')->nullable();
+        $table->unsignedBigInteger('updated_by')->nullable();
+        $table->string('updated_by_name')->nullable();
         $table->timestamps();
         $table->softDeletes();
       });
@@ -47,6 +40,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('menus');
+        Schema::dropIfExists('categories');
     }
 };

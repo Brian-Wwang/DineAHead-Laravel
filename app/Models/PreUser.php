@@ -8,13 +8,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class PreUser extends Model
 {
-    use SoftDeletes;
+  use SoftDeletes;
 
-    protected $fillable = [
-        'email', 'verify_code', 'expired_at', 'type'
-    ];
+  protected $fillable = [
+    'email', 'verify_code', 'expired_at', 'type'
+  ];
 
-    protected $casts = [
-        'expired_at' => 'datetime',
-    ];
+  protected $casts = [
+    'expired_at' => 'datetime',
+  ];
 }
