@@ -22,16 +22,27 @@ class TableController extends Controller
 
     public function public(Request $request) {
       $request->validate([
-        'store_id' => 'required|integer|exists:stores,id'
+          'store_id' => 'required|integer|exists:stores,id'
       ]);
 
       $tables = Table::where('store_id', $request->store_id)
-        ->whereNull('deleted_at')
-        ->where('is_active', true)
-        ->get();
+          ->whereNull('deleted_at')
+          ->where('is_active', true)
+          ->get();
 
-      return api_response($tables);
-    }
+      // 按 location_type_name 分组
+      $grouped = $tables->groupBy('location_type_name')
+          ->map(function ($items, $locationType) {
+              return [
+                  'location_type_name' => $locationType,
+                  'children' => $items->values()  // 保持原始表的数据
+              ];
+          })
+          ->values(); // 重置为顺序数组
+
+      return api_response($grouped);
+  }
+
 
     public function create(Request $request) {
       $data = $request->validate([

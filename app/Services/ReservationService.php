@@ -46,8 +46,8 @@ class ReservationService
                 'user_id'         => $user->id,
                 'status'          => ReservationStatus::Pending,
                 'remark'          => $data['remark'] ?? null,
-                'created_by'      => $user->id,
-                'created_by_name' => $user->name,
+                // 'created_by'      => $user->id,
+                // 'created_by_name' => $user->name,
             ]);
 
             // 创建 ReservationSlot
@@ -227,5 +227,48 @@ class ReservationService
         }
 
         return $slots;
+    }
+
+    // 🔹 更新 Reservation
+    public function update(int $reservationId, array $data, $user)
+    {
+        return DB::transaction(function () use ($reservationId, $data, $user) {
+            $reservation = Reservation::where('id', $reservationId)
+                ->where('user_id', $user->id) // 限制只能更新自己的
+                ->firstOrFail();
+
+            // 如果有 remark / status 需要更新
+            if (isset($data['remark'])) {
+                $reservation->remark = $data['remark'];
+            }
+            if (isset($data['status'])) {
+                $reservation->status = $data['status'];
+            }
+            $reservation->save();
+
+            // 如果有更新 slots
+            if (isset($data['slot_start']) && isset($data['slot_end'])) {
+                // 删除旧的 slot
+                ReservationSlot::where('reservation_id', $reservation->id)->delete();
+
+                // 新建 slot
+                ReservationSlot::create([
+                    'reservation_id' => $reservation->id,
+                    'slot_start'     => $data['slot_start'],
+                    'slot_end'       => $data['slot_end'],
+                ]);
+            }
+
+            return $reservation->load('slots');
+        });
+    }
+
+    // 🔹 详情 Service
+    public function detail(int $reservationId, $user)
+    {
+        return Reservation::with(['slots', 'table', 'store'])
+            ->where('id', $reservationId)
+            ->where('user_id', $user->id) // 只允许查看自己的
+            ->firstOrFail();
     }
 }

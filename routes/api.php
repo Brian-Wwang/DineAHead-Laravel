@@ -19,6 +19,7 @@ use App\Http\Controllers\SCategoryController;
 use App\Http\Controllers\PriceLevelController;
 use App\Http\Controllers\SeatLevelController;
 use App\Http\Controllers\ReservationController;
+use App\Models\Reservation;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -151,6 +152,9 @@ Route::middleware(['auth:sanctum', 'header.type:merchant'])->group(function () {
 
   Route::prefix('reservation')->group(function () {
     Route::get('/get-list', [ReservationController::class, 'list']);
+    Route::post('/get-detail', [ReservationController::class, 'detail']);
+    Route::post('/create', [ReservationController::class, 'storeCreate']);
+    Route::post('/update', [ReservationController::class, 'storeUpdate']);
     Route::post('/accept', function (Request $request, ReservationController $ctrl) {
         $request->merge(['status' => \App\Enums\ReservationStatus::Accepted->value]);
         return $ctrl->updateStatus($request);

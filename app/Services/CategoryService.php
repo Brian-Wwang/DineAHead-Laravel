@@ -182,12 +182,12 @@ class CategoryService
         if ($type == 20) {
             if (!in_array($discountType, [10, 20, 30])) {
                 throw ValidationException::withMessages([
-                    'discount_type' => '当 type=20 时，discount_type 必须是 10, 20, 或 30',
+                    'discount_type' => 'type=20 ,scount_type must 10, 20, 30',
                 ]);
             }
             if (empty($discountValue) || $discountValue <= 0) {
                 throw ValidationException::withMessages([
-                    'discount_value' => '当 type=20 时，discount_value 必须大于 0',
+                    'discount_value' => 'type=20, discount_value must greater than 0',
                 ]);
             }
         }
