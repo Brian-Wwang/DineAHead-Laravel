@@ -33,13 +33,14 @@ class UploadController extends Controller
         }
 
         // 文件大小限制（5MB）
-        if (strlen($data) > 5 * 1024 * 1024) {
+        if (strlen($data) > 20 * 1024 * 1024) {
             return response()->json(['success' => false, 'message' => 'File too large'], 413);
         }
 
         // 安全扩展名映射
         $allowedMimeTypes = [
-            'image/jpeg' => 'jpg',
+            'image/jpeg' => 'jpeg',
+            'image/jpg' => 'jpg',
             'image/png'  => 'png',
             'image/gif'  => 'gif',
             'image/webp' => 'webp',
@@ -54,12 +55,15 @@ class UploadController extends Controller
         // 保存文件
         Storage::disk('public')->put($fullPath, $data);
 
-        // 使用 Storage::url()
-        $url = Storage::url($fullPath);
+        // 使用 Storage::url() 获取相对路径
+        $relativeUrl = Storage::url($fullPath);
+
+        // 通过 request() 自动拼接域名和协议
+        $absoluteUrl = $request->getSchemeAndHttpHost() . $relativeUrl;
 
         return response()->json([
             'success' => true,
-            'url' => $url,
+            'url' => $absoluteUrl,
         ]);
     }
 }
