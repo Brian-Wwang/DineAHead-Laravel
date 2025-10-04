@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Enums\LocationType;
 
 return new class extends Migration
 {
@@ -16,11 +17,15 @@ return new class extends Migration
         $table->foreignId('store_id')->constrained()->cascadeOnDelete();
         $table->string('name');
         $table->text('description')->nullable();
-        $table->string('seat-level')->nullable();
+        $table->foreignId('seat_level_id')
+              ->constrained('seat_levels')
+              ->nullOnDelete();
         $table->jsonb('images')->nullable();   // 存储图片URL数组
-        $table->tinyInteger('status')->default(0)->comment('0=available,1=pending,2=accept,3=confirm');
+        $table->unsignedTinyInteger('location_type')
+                ->default(LocationType::Indoor->value)
+                ->nullable(false)
+                ->check('location_type IN (10, 20, 30)');
         $table->boolean('is_active')->default(true);
-        $table->unsignedBigInteger('current_booking_id')->nullable();
         $table->timestamps();
         $table->softDeletes(); // is_delete
       });

@@ -11,130 +11,78 @@ use Throwable;
 
 class CuisineController extends Controller
 {
-    // 🟢 Public List：只获取 is_active 为 true 的数据
-    public function public()
-    {
-        try {
-            $list = Cuisine::where('is_active', true)->orderBy('id', 'desc')->get();
-            return response()->json(['success' => true, 'data' => $list]);
-        } catch (Throwable $e) {
-            return $this->errorResponse($e);
-        }
-    }
+  // 🟢 Public List：只获取 is_active 为 true 的数据
+  public function public() {
+    $list = Cuisine::query()
+      ->where('is_active', true)   // ✅ 只要启用的
+      ->whereNull('deleted_at')    // ✅ 只要没被软删除的
+      ->orderBy('id', 'desc')
+      ->get();
+    return api_response($list);
+  }
 
-    // 🟡 获取所有数据（后台）
-    public function list()
-    {
-        try {
-            $list = Cuisine::orderBy('id', 'desc')->get();
-            return response()->json(['success' => true, 'data' => $list]);
-        } catch (Throwable $e) {
-            return $this->errorResponse($e);
-        }
-    }
+  // 🟡 获取所有数据（后台）
+  public function list() {
+    $list = Cuisine::whereNull('deleted_at')->orderBy('id', 'desc')->get();
+    return api_response($list);
+  }
 
-    // 🟢 创建
-    public function create(Request $request)
-    {
-      try {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'nullable|string'
-        ]);
+  // 🟢 创建
+  public function create(Request $request) {
+    $request->validate([
+      'name' => 'required|string|max:255',
+      'description' => 'nullable|string',
+      'is_active' => 'boolean',
+    ]);
 
-        $user = Auth::user();
+    $user = Auth::user();
 
-        $cuisine = new Cuisine();
-        $cuisine->name = $request->name;
-        $cuisine->description = $request->description;
-        $cuisine->is_active = $request->is_active ?? true;
-        $cuisine->created_by = $user->id;
-        $cuisine->created_by_name = $user->name;
-        $cuisine->save();
+    $cuisine = new Cuisine();
+    $cuisine->name = $request->name;
+    $cuisine->description = $request->description;
+    $cuisine->is_active = $request->is_active ?? true;
+    $cuisine->created_by = $user->id;
+    $cuisine->created_by_name = $user->name;
+    $cuisine->save();
 
-        return response()->json(['success' => true, 'data' => $cuisine]);
-      } catch (ValidationException $e) {
-          return response()->json([
-              'success' => false,
-              'message' => 'Validation failed',
-              'errors' => $e->errors()
-          ], 422);
-      } catch (Throwable $e) {
-        return $this->errorResponse($e);
-      }
-    }
+    return api_response();
+  }
 
-    // 🟠 更新
-    public function update(Request $request)
-    {
-        try {
-            $request->validate([
-                'id' => 'required|exists:cuisines,id',
-                'name' => 'required|string|max:255',
-                'description' => 'nullable|string',
-                'is_active' => 'boolean',
-            ]);
+  // 🟠 更新
+  public function update(Request $request) {
+    $request->validate([
+      'id'          => 'required|exists:cuisines,id',
+      'name'        => 'required|string|max:255',
+      'description' => 'nullable|string',
+      'is_active'   => 'boolean',
+    ]);
 
-            $user = Auth::user();
-            $cuisine = Cuisine::findOrFail($request->id);
+    $user = Auth::user();
 
-            $cuisine->name = $request->name;
-            $cuisine->description = $request->description;
-            $cuisine->is_active = $request->is_active ?? true;
-            $cuisine->updated_by = $user->id;
-            $cuisine->updated_by_name = $user->name;
-            $cuisine->save();
+    // ✅ 只能找到未软删除的记录
+    $cuisine = Cuisine::where('id', $request->id)
+        ->whereNull('deleted_at')
+        ->firstOrFail();
 
-            return response()->json(['success' => true, 'data' => $cuisine]);
-        } catch (ValidationException $e) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Validation failed',
-                'errors' => $e->errors()
-            ], 422);
-        } catch (ModelNotFoundException $e) {
-            return response()->json(['success' => false, 'message' => 'Cuisine not found'], 404);
-        } catch (Throwable $e) {
-            return $this->errorResponse($e);
-        }
-    }
+    $cuisine->name           = $request->name;
+    $cuisine->description    = $request->description;
+    $cuisine->is_active      = $request->is_active ?? true;
+    $cuisine->updated_by     = $user->id;
+    $cuisine->updated_by_name = $user->name;
+    $cuisine->save();
 
-    // 🔴 删除（软删）
-    public function delete(Request $request)
-    {
-        try {
-            $request->validate([
-                'id' => 'required|exists:cuisines,id',
-            ]);
+    return api_response();
+  }
 
-            $cuisine = Cuisine::findOrFail($request->id);
+  // 🔴 删除（软删）
+  public function delete(Request $request)
+  {
+    $request->validate([
+      'id' => 'required|exists:cuisines,id',
+    ]);
 
-            $cuisine->is_active = false;
-            $cuisine->save();
-
-            return response()->json(['success' => true, 'message' => 'Marked as inactive']);
-        } catch (ValidationException $e) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Validation failed',
-                'errors' => $e->errors()
-            ], 422);
-        } catch (ModelNotFoundException $e) {
-            return response()->json(['success' => false, 'message' => 'Cuisine not found'], 404);
-        } catch (Throwable $e) {
-            return $this->errorResponse($e);
-        }
-    }
-
-    /**
-     * 统一异常处理格式
-     */
-    protected function errorResponse(Throwable $e)
-    {
-        return response()->json([
-            'success' => false,
-            'message' => $e->getMessage(),
-            'trace'   => config('app.debug') ? $e->getTrace() : [],
-        ], 500);
-    }
+    $cuisine = Cuisine::findOrFail($request->id);
+    $cuisine->delete();
+    return api_response();
+  }
 }

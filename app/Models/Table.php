@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Enums\LocationType;
 
 class Table extends Model
 {
@@ -15,37 +16,48 @@ class Table extends Model
         'description',
         'images',
         'is_active',
-        'status',
-        'current_booking_id',
+        'remark',
+        'seat_level_id',
+        'location_type',
     ];
 
     protected $casts = [
-        'images' => 'array',
-        'is_active'   => 'boolean',
-        'status' => 'integer',
+        'images'        => 'array',
+        'is_active'     => 'boolean',
+        'location_type' => LocationType::class,
     ];
 
-    // 数字枚举常量
-    const STATUS_AVAILABLE = 0;
-    const STATUS_PENDING   = 1;
-    const STATUS_ACCEPT    = 2;
-    const STATUS_CONFIRM   = 3;
+    // ✅ 删除 seat-level，正确隐藏 seatLevel 关系
+    protected $hidden  = ['seat_level_id', 'seatLevel', 'store_id', 'location_type'];
 
-    public static array $statusLabels = [
-        self::STATUS_AVAILABLE => 'available',
-        self::STATUS_PENDING   => 'pending',
-        self::STATUS_ACCEPT    => 'accept',
-        self::STATUS_CONFIRM   => 'confirm',
-    ];
+    // ✅ 同时追加 seat_level_name 和 location_type_name
+    protected $appends = ['seat_level_name', 'location_type_name'];
 
-    public function getStatusLabelAttribute(): string
+    public function store()
     {
-        return self::$statusLabels[$this->status] ?? 'unknown';
+        return $this->belongsTo(Store::class);
     }
 
-    // Scope：只查 is_active=true 的记录
-    public function scopeVisible($query)
+    public function seatLevel()
     {
-        return $query->where('is_active', true);
+        return $this->belongsTo(SeatLevel::class, 'seat_level_id');
+    }
+
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
+
+    // seat_level_name
+    public function getSeatLevelNameAttribute()
+    {
+        return $this->seatLevel->name ?? null;
+    }
+
+    // location_type_name
+    public function getLocationTypeNameAttribute()
+    {
+        return $this->location_type?->name ?? null;
+        // 或者用 label() 返回中文，比如 Indoor → 室内
     }
 }

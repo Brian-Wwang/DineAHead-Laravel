@@ -27,9 +27,12 @@ return new class extends Migration
             $table->string('cover');
             $table->time('time_start');
             $table->time('time_close');
-            $table->string('price_level');
+            $table->foreignId('price_level_id')
+                  ->nullable()
+                  ->constrained('price_levels')
+                  ->nullOnDelete();
             $table->string('latitute');
-            $table->string('longitute');
+            $table->string('longitude');
 
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->boolean('is_active')->default(true);

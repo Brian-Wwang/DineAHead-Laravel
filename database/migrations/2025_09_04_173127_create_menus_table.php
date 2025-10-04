@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use \App\Enums\DiscountType;
 
 return new class extends Migration
 {
@@ -14,7 +15,6 @@ return new class extends Migration
       Schema::create('menus', function (Blueprint $table) {
         $table->id();
         $table->foreignId('store_id')->constrained()->cascadeOnDelete();
-        $table->foreignId('category_id')->nullable();
 
         $table->string('name');
         $table->text('description')->nullable();
@@ -27,8 +27,8 @@ return new class extends Migration
 
         // ✅ 数字枚举，数字为准
         $table->tinyInteger('discount_type')
-              ->default(0)
-              ->comment('0=none,10=percentage,20=actual');
+          ->default(DiscountType::None->value)
+          ->comment('0=none,10=percentage,20=actual,30=fix');
 
         $table->decimal('discount_amount', 10, 2)->default(0);
 
@@ -37,8 +37,6 @@ return new class extends Migration
         //       ->comment('0=available,1=pending,2=accept,3=confirm');
 
         $table->boolean('is_active')->default(true);
-        $table->unsignedBigInteger('current_booking_id')->nullable();
-
         $table->timestamps();
         $table->softDeletes();
       });
