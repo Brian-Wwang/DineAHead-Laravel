@@ -5,6 +5,7 @@ use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use App\Http\Middleware\CheckHeaderType;
 use App\Exceptions\Handler;
+use App\Http\Middleware\UpdateLastSeen;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -17,6 +18,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
             'header.type' => CheckHeaderType::class,
+            'update.lastseen' => UpdateLastSeen::class
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
